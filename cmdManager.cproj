@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>6.1</ProjectVersion>
     <ToolchainName>com.HPInfoTech.CodeVisionAVR.C</ToolchainName>
-    <ProjectGuid>{69CB3A69-423D-497C-A76A-A46C3F34E8A0}</ProjectGuid>
+    <ProjectGuid>{B3D2F94C-423D-497C-A76A-A46C3F34E8A0}</ProjectGuid>
     <avrdevice>ATmega16</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -37,6 +37,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Folder Include="..\..\Src\" />
+    <Compile Include="..\..\Src\CmdManager.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Folder Include="..\..\..\Str\Src\" />
+    <Compile Include="..\..\..\Str\Src\Str.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Folder Include="..\..\..\Stream\Src\" />
+    <Compile Include="..\..\..\Stream\Src\InputStream.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="..\..\..\Stream\Src\OutputStream.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="..\..\..\Stream\Src\StreamBuffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UARTStream.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

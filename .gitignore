@@ -1,2 +1,9 @@
 *.cci
 Debug/
+*.c~
+*.h~
+*.hci
+*.prj~
+*.cbi
+*.cof
+*.fct
