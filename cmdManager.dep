@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>2090486958</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\CmdManager.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\CmdManager.r90</file>
+            <file>$PROJ_DIR$\..\..\Src\CmdManager.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+            <file>$PROJ_DIR$\..\..\..\Stream\Src\InputStream.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+            <file>$PROJ_DIR$\..\..\..\Stream\Src\StreamBuffer.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\cmdManager.pbd</file>
+            <file>$PROJ_DIR$\Debug\Exe\cmdManager.d90</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_LCD.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\UARTStream.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\UARTStream.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_LED.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_LED.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_LCD.r90</file>
+            <file>$PROJ_DIR$\UARTStream.c</file>
+            <file>$PROJ_DIR$\..\..\..\Stream\Src\InputStream.c</file>
+            <file>$PROJ_DIR$\CMD_LCD.c</file>
+            <file>$PROJ_DIR$\..\..\..\Stream\Src\StreamBuffer.c</file>
+            <file>$PROJ_DIR$\CMD_LED.c</file>
+            <file>$PROJ_DIR$\..\..\..\Stream\Src\OutputStream.c</file>
+            <file>$TOOLKIT_DIR$\inc\iom16.h</file>
+            <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
+            <file>$PROJ_DIR$\..\..\..\Str\Src\Str.c</file>
+            <file>$PROJ_DIR$\..\..\Src\CmdManager.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Str.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\OutputStream.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\StreamBuffer.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\StreamBuffer.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\Str.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\OutputStream.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\InputStream.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\InputStream.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_LCD.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\CmdManager.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\StreamBuffer.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\UARTStream.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\OutputStream.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Str.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_LED.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\InputStream.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Exe\cmdManager.hex</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\List\cmdManager.map</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_TEST.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\CMD_TEST.xcl</file>
+            <file>$PROJ_DIR$\CMD_TEST.c</file>
+            <file>$PROJ_DIR$\Cmds.h</file>
+            <file>$PROJ_DIR$\UARTStream.h</file>
+            <file>$PROJ_DIR$\..\..\..\Stream\Src\OutputStream.h</file>
+            <file>$PROJ_DIR$\..\..\..\Str\Src\Str.h</file>
+            <file>$PROJ_DIR$\..\..\CmdManager.h</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\CmdManager.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 1</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 0</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 47</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 37 9 15 5 14 12 4 7 13 11 10 66 8 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 51</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 33 32 34 35 9 15 5 14 12 4 7 13 11 10 65 37 66 8 6 64 63</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 55 57</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\cmdManager.d90</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 59 56 25 23 1 44 17 39 42 40 22 58</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\UARTStream.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 49</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 64 9 15 5 14 12 4 7 13 11 10 65 33 32 34 35</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\Stream\Src\InputStream.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 44</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 45</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 54</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 9 15 5 14 12 4 7 13 11 10 8 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMD_LCD.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 25</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 46</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 37 9 15 5 14 12 4 7 13 11 10 66 8 6 64 65</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\Stream\Src\StreamBuffer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 40</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 41</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 48</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 15 5 14 12 4 7 13 11 10 8 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMD_LED.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 23</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 53</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 37 9 15 5 14 12 4 7 13 11 10 66 8 6 64 65 33 32 34 35</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\Stream\Src\OutputStream.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 39</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 43</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 50</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 65 15 5 14 12 4 7 13 11 10 8 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\Str\Src\Str.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 42</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 38</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 52</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 66 8 14 12 4 7 13 11 10 6</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\cmdManager.hex</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 57</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 59 56 23 60 1 44 17 39 42 40 22 58</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMD_TEST.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 60</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 37 9 15 5 14 12 4 7 13 11 10 66 8 6 64 65</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

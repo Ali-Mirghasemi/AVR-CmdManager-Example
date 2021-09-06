@@ -1,11 +1,13 @@
 #include "UARTStream.h"
-#include <io.h>
+#include <ioavr.h>
 
-#define DATA_REGISTER_EMPTY (1<<UDRE)
-#define RX_COMPLETE (1<<RXC)
-#define FRAMING_ERROR (1<<FE)
-#define PARITY_ERROR (1<<UPE)
-#define DATA_OVERRUN (1<<DOR)
+#define NULL        ((void*) 0)
+
+#define DATA_REGISTER_EMPTY (1 << 5)
+#define RX_COMPLETE (1 << 7)
+#define FRAMING_ERROR (1 << 4)
+#define PARITY_ERROR (1 << 2)
+#define DATA_OVERRUN (1 << 3)
 
 
 UARTStream Serial;
@@ -25,11 +27,11 @@ void UARTStream_init(void) {
     // USART Transmitter: On
     // USART Mode: Asynchronous
     // USART Baud Rate: 9600
-    UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (0<<U2X) | (0<<MPCM);
-    UCSRB=(1<<RXCIE) | (1<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
-    UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
-    UBRRH=0x00;
-    UBRRL=0x33;
+    UCSRA = 0x00;
+    UCSRB = (1<<7) | (1<<6) | (0<<5) | (1<<4) | (1<<3) | (0<<2) | (0<<1) | (0<<0);
+    UCSRC = (1<<7) | (0<<6) | (0<<5) | (0<<4) | (0<<3) | (1<<2) | (1<<1) | (0<<0);
+    UBRRH = 0x00;
+    UBRRL = 0x33;
     
     // init streams         
     Serial.Input = &uartInput;
@@ -42,7 +44,8 @@ void UARTStream_transmit(OStream* stream, uint8_t* buff, Stream_LenType len) {
     UDR = *buff;
 }
 
-interrupt [USART_RXC] void usart_rx_isr(void)
+#pragma vector = USART_RXC_vect
+__interrupt void usart_rx_isr(void)
 {
     char status;
     status = UCSRA;
@@ -52,7 +55,9 @@ interrupt [USART_RXC] void usart_rx_isr(void)
     }
 }
 
-interrupt [USART_TXC] void usart_tx_isr(void)
+
+#pragma vector = USART_TXC_vect
+__interrupt void usart_tx_isr(void)
 {
     OStream_handle(Serial.Output, 1);
 }

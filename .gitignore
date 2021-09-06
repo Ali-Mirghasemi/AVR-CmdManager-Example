@@ -7,3 +7,5 @@ Debug/
 *.cbi
 *.cof
 *.fct
+.vs/
+settings/
