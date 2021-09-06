@@ -16,6 +16,8 @@ static const char CMD_LED_NAME[] = "led";
 static int8_t  Led_getLed(Cmd_Cursor* cursor);
 static uint8_t Led_getState(Cmd_Cursor* cursor);
 
+static void printLedState(uint8_t led, uint8_t state);
+
 static Cmd_Handled Led_onSet(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, Cmd_Type type);
 static Cmd_Handled Led_onGet(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, Cmd_Type type);
 static Cmd_Handled Led_onHelp(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, Cmd_Type type);
@@ -34,12 +36,14 @@ void Led_init(void) {
     LED_2_DDR = 1;
 }
 
+extern void printCmdParam(Cmd_Param* param);
+
 static int8_t  Led_getLed(Cmd_Cursor* cursor) {
     Cmd_Param cmdParam;
-    if (CmdManager_nextParam(cursor, &cmdParam) && cmdParam.ValueType == Cmd_ValueType_Number) {
-        if (cmdParam.Value.Number < LED_NUM && cmdParam.Value.Number >= 0) {
-            return (int8_t) cmdParam.Value.Number; 
-        }        
+    if (CmdManager_nextParam(cursor, &cmdParam)) {
+      if (cmdParam.ValueType == Cmd_ValueType_Number) {
+        return (uint8_t) cmdParam.Value.Number & 0x07;
+      }
     }  
     return -1;
 }
@@ -49,14 +53,13 @@ static uint8_t Led_getState(Cmd_Cursor* cursor) {
     if (CmdManager_nextParam(cursor, &cmdParam)) {
         switch (cmdParam.ValueType) {
             case Cmd_ValueType_Number:
-                if (cmdParam.Value.Number >= 0 && cmdParam.Value.Number <= 1) {
-                    return cmdParam.Value.Number; 
-                }
-                break;
+                return (uint8_t) cmdParam.Value.Number & 0x01;
             case Cmd_ValueType_State:
                 return cmdParam.Value.State;
             case Cmd_ValueType_StateKey:
                 return cmdParam.Value.StateKey;
+            case Cmd_ValueType_Boolean:
+                return cmdParam.Value.Boolean;
         }
     }     
                                          
@@ -70,9 +73,8 @@ static Cmd_Handled Led_onSet(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, 
                 
     // get led
     if ((led = Led_getLed(cursor)) >= 0) {
-        PORTC_Bit4 = 1;
         if ((state = Led_getState(cursor)) >= 0) {
-            PORTC_Bit5 = 1;
+            result = 1;
             switch (led) {
                 case 0:
                     LED_0 = state;
@@ -83,8 +85,10 @@ static Cmd_Handled Led_onSet(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, 
                 case 2:  
                     LED_2 = state;
                     break;
+                default:
+                    result = 0;
+                    break;
             }                        
-            result = 1;
         }        
     }   
                                  
@@ -100,10 +104,29 @@ static Cmd_Handled Led_onSet(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, 
     return Cmd_Done;
 }
 static Cmd_Handled Led_onGet(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, Cmd_Type type) {
-    PORTC_Bit6 = 1;
+    printLedState(0, LED_0);
+    printLedState(1, LED_1);
+    printLedState(2, LED_2);
     return Cmd_Done;
 }
 static Cmd_Handled Led_onHelp(CmdManager* manager, Cmd* cmd, Cmd_Cursor* cursor, Cmd_Type type) {
-    PORTC_Bit7 = 1;
+    static const char TXT[] = "\r\n+LED: <led>,<state>\r\n\r\nOK\r\n";
+    OStream_writeBytes(Serial.Output, (uint8_t*) TXT, sizeof(TXT) - 1);
+    OStream_flush(Serial.Output);
     return Cmd_Done;
+}
+
+static void printLedState(uint8_t led, uint8_t state) {
+  static const char TXT[] = "\r\n+LED: ";
+  char temp[4];
+  Str_LenType len;
+  OStream_writeBytes(Serial.Output, (uint8_t*) TXT, sizeof(TXT) - 1);
+  OStream_flush(Serial.Output);
+  len = Str_parseUNum(led, Str_Decimal, STR_NORMAL_LEN, temp);
+  OStream_writeBytes(Serial.Output, (uint8_t*) temp, len);
+  OStream_flush(Serial.Output);
+  OStream_writeChar(Serial.Output, ',');
+  OStream_writeBytes(Serial.Output, (uint8_t*) (state ? "ON" : "OFF"), state ? 2 : 3);
+  OStream_writeBytes(Serial.Output, (uint8_t*) "\r\n", 2);
+  OStream_flush(Serial.Output);
 }
