@@ -1,3 +1,18 @@
+/**
+ * @file main.c
+ * @author Ali Mirghasemi (ali.mirghasemi1376@gmail.com)
+ * @brief This example show how to use CmdManager library.
+ * This example use AVR-CmdManager library to create a command line interface.
+ * Configuration
+ * - CMD_MULTI_CALLBACK                  1
+ * - CMD_LIST_MODE                       CMD_LIST_POINTER_ARRAY
+ * - CMD_DEFAULT_END_WITH                "\r\n"
+ * @version 0.1
+ * @date 2022-06-20
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <ioavr.h>
 
 #include "InputStream.h"
