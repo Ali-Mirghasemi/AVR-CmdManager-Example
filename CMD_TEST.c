@@ -14,7 +14,7 @@ static Cmd_Handled Test_onHelp(CmdManager* manager, Cmd* cmd, Param_Cursor* curs
 static Cmd_Handled Test_onResponse(CmdManager* manager, Cmd* cmd, Param_Cursor* cursor, Cmd_Type type);
 
 
-//const Cmd CMD_TEST = CMD_INIT("test", Cmd_Type_Any, Test_onExe, Test_onSet, Test_onGet, Test_onHelp, Test_onResponse);;
+//const Cmd CMD_TEST = CMD_INIT("test", Cmd_Type_Any, Test_onExe, Test_onSet, Test_onGet, Test_onHelp, Test_onResponse);
 
 const Cmd CMD_TEST = {
     {Test_onExe, Test_onSet, Test_onGet, Test_onHelp, Test_onResponse},
@@ -72,16 +72,16 @@ static void printCmdParam(Param* param) {
     char temp[12];
     Str_LenType len;
     
-    //printf("{%u, %s, ", param->Index, TYPES[(int) param->ValueType]);
+    //printf("{%u, %s, ", param->Index, TYPES[(int) param->Value.Type]);
     OStream_writeChar(Serial.Output, '{');
     len = Str_parseNum(param->Index, Str_Decimal, STR_NORMAL_LEN, temp);
     OStream_writeBytes(Serial.Output, (uint8_t*) temp, len);
     OStream_flush(Serial.Output);
     OStream_writeBytes(Serial.Output, ", ", 2);
-    OStream_writeBytes(Serial.Output, (uint8_t*) TYPES[(int) param->ValueType], Str_len((char*) TYPES[(int) param->ValueType]));
+    OStream_writeBytes(Serial.Output, (uint8_t*) TYPES[(int) param->Value.Type], Str_len((char*) TYPES[(int) param->Value.Type]));
     OStream_flush(Serial.Output);
     OStream_writeBytes(Serial.Output, ", ", 2);
-    switch (param->ValueType) {
+    switch (param->Value.Type) {
         case Param_ValueType_Unknown:
             //printf("\"%s\"", param->Value.Unknown);
             OStream_writeChar(Serial.Output, '"');
